@@ -2,11 +2,14 @@ package main
 
 import (
 	"fmt"
-	"strings"
 	"os"
+	"strings"
+	"time"
 )
 
 func main() {
+	start := time.Now()
 	fmt.Println(strings.Join(os.Args[1:], " "))
-	fmt.Println(os.Args[1:])
+	// fmt.Println(os.Args[1:])
+	fmt.Println(time.Now().Sub(start).Nanoseconds())
 }
