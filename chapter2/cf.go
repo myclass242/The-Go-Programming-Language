@@ -1,7 +1,6 @@
 package main
 
 import (
-	"cf/tempconv"
 	"fmt"
 	"learngo/chapter2/tempconv"
 	"os"
