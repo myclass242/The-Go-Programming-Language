@@ -33,4 +33,28 @@ func main() {
 
 	nan := math.NaN()
 	fmt.Println(nan == nan, nan < nan, nan > nan)
+
+	var cx complex128 = complex(1, 2)
+	var cy complex128 = complex(3, 4)
+	fmt.Println(cx * cy)
+	fmt.Println(real(cx * cy))
+	fmt.Println(imag(cx * cy))
+	fmt.Println(1i * 1i)
+
+	s := "Hello World"
+	fmt.Println(len(s))
+	fmt.Println(s[0], s[7])
+	fmt.Println(s[:5])
+	t := s
+	s += ", 你好世界"
+	fmt.Println(s)
+	fmt.Println(t)
+	// s[0] = 'L'
+
+	const GoUsage = `Go is a tool for managing Go source code.
+	
+	Usage:
+		Go command [arguments]
+	......`
+	fmt.Println(GoUsage)
 }

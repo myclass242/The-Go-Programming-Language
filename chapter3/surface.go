@@ -23,9 +23,21 @@ func main() {
 	for i := 0; i < cells; i++ {
 		for j := 0; j < cells; j++ {
 			ax, ay := corner(i+1, j)
+			if math.IsNaN(ax) || math.IsNaN(ay) {
+				fmt.Printf("Not a number\n")
+			}
 			bx, by := corner(i, j)
+			if math.IsNaN(bx) || math.IsNaN(by) {
+				fmt.Printf("Not a number\n")
+			}
 			cx, cy := corner(i, j+1)
+			if math.IsNaN(cx) || math.IsNaN(cy) {
+				fmt.Printf("Not a number\n")
+			}
 			dx, dy := corner(i+1, j+1)
+			if math.IsNaN(dx) || math.IsNaN(dy) {
+				fmt.Printf("Not a number\n")
+			}
 			fmt.Printf("<polygon points='%g,%g %g,%g %g,%g %g,%g'/>\n",
 				ax, ay, bx, by, cx, cy, dx, dy)
 		}
@@ -43,6 +55,9 @@ func corner(i, j int) (float64, float64) {
 	y := xyrange * (float64(j)/cells - 0.5)
 
 	z := f(x, y)
+	if math.IsNaN(z) {
+		return math.NaN(), math.NaN()
+	}
 
 	sx := width/2 + (x-y)*cos30*xyscale
 	sy := height/2 + (x+y)*sin30*xyscale - z*zscale
